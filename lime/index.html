@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Lime</title>
+  
+  <script src="blockly_compressed.js"></script>
+  <script src="blocks_compressed.js"></script>
+  <script src="javascript_compressed.js"></script>
+  <script src="msg/js/en.js"></script>
+  <link rel="icon" href="./favicon.png">
+  <style>
+    body {
+      background-color: #00ff00;
+      font-family: sans-serif;
+    }
+    
+    h1 {
+      font-weight: normal;
+      font-size: 140%;
+    }
+    
+    
+  </style>
+</head>
+<body>
+  <img src="./logo.png">
+  
+
+  <p>
+    <button onclick="runCode()">Start</button>
+  </p>
+
+  <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+
+  <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+  <category name="Text" colour="#5ba58c">
+    <block type="text_print"></block>
+    <block type="text_indexOf">
+      <field name="END">FIRST</field>
+    </block>
+    <block type="text">
+      <field name="TEXT"></field>
+    </block>
+    <block type="text_join">
+      <mutation items="2"></mutation>
+    </block>
+    <block type="text_append">
+      <field name="VAR" id="CiW)MX:K+Zg8$I2a)Eyw">item</field>
+    </block>
+    <block type="text_length"></block>
+    <block type="text_isEmpty"></block>
+    <block type="text_prompt_ext">
+      <mutation type="TEXT"></mutation>
+      <field name="TYPE">TEXT</field>
+    </block>
+    <block type="text_charAt">
+      <mutation at="true"></mutation>
+      <field name="WHERE">FROM_START</field>
+    </block>
+    <block type="text_getSubstring">
+      <mutation at1="true" at2="true"></mutation>
+      <field name="WHERE1">FROM_START</field>
+      <field name="WHERE2">FROM_START</field>
+    </block>
+    <block type="text_changeCase">
+      <field name="CASE">UPPERCASE</field>
+    </block>
+    <block type="text_trim">
+      <field name="MODE">BOTH</field>
+    </block>
+  </category>
+  <category name="Logic" colour="#5b67a5">
+    <block type="math_number">
+      <field name="NUM">0</field>
+    </block>
+    <block type="math_arithmetic">
+      <field name="OP">ADD</field>
+    </block>
+    <block type="math_single">
+      <field name="OP">ROOT</field>
+    </block>
+    <block type="math_trig">
+      <field name="OP">SIN</field>
+    </block>
+    <block type="math_constant">
+      <field name="CONSTANT">PI</field>
+    </block>
+    <block type="math_number_property">
+      <mutation divisor_input="false"></mutation>
+      <field name="PROPERTY">EVEN</field>
+    </block>
+    <block type="math_round">
+      <field name="OP">ROUND</field>
+    </block>
+    <block type="math_on_list">
+      <mutation op="SUM"></mutation>
+      <field name="OP">SUM</field>
+    </block>
+    <block type="math_modulo"></block>
+    <block type="math_constrain"></block>
+    <block type="math_random_int"></block>
+    <block type="math_random_float"></block>
+    <block type="controls_if"></block>
+    <block type="logic_compare">
+      <field name="OP">EQ</field>
+    </block>
+    <block type="logic_operation">
+      <field name="OP">AND</field>
+    </block>
+    <block type="logic_negate"></block>
+    <block type="logic_boolean">
+      <field name="BOOL">TRUE</field>
+    </block>
+    <block type="logic_null"></block>
+    <block type="logic_ternary"></block>
+  </category>
+  <category name="Lists" colour="#745ba5">
+    <block type="lists_create_with">
+      <mutation items="0"></mutation>
+    </block>
+    <block type="lists_create_with">
+      <mutation items="3"></mutation>
+    </block>
+    <block type="lists_repeat"></block>
+    <block type="lists_length"></block>
+    <block type="lists_isEmpty"></block>
+    <block type="lists_indexOf">
+      <field name="END">FIRST</field>
+    </block>
+    <block type="lists_getIndex">
+      <mutation statement="false" at="true"></mutation>
+      <field name="MODE">GET</field>
+      <field name="WHERE">FROM_START</field>
+    </block>
+    <block type="lists_setIndex">
+      <mutation at="true"></mutation>
+      <field name="MODE">SET</field>
+      <field name="WHERE">FROM_START</field>
+    </block>
+    <block type="lists_getSublist">
+      <mutation at1="true" at2="true"></mutation>
+      <field name="WHERE1">FROM_START</field>
+      <field name="WHERE2">FROM_START</field>
+    </block>
+    <block type="lists_split">
+      <mutation mode="SPLIT"></mutation>
+      <field name="MODE">SPLIT</field>
+    </block>
+    <block type="lists_sort">
+      <field name="TYPE">NUMERIC</field>
+      <field name="DIRECTION">1</field>
+    </block>
+  </category>
+  <category name="Loops" colour="#5ba55b">
+    <block type="controls_repeat_ext"></block>
+    <block type="controls_whileUntil">
+      <field name="MODE">WHILE</field>
+    </block>
+    <block type="controls_for">
+      <field name="VAR" id="[ITd9(w.!0=On37}x|yv">i</field>
+    </block>
+    <block type="controls_forEach">
+      <field name="VAR" id="[ITd9(w.!0=On37}x|yv">i</field>
+    </block>
+    <block type="controls_flow_statements">
+      <field name="FLOW">BREAK</field>
+    </block>
+  </category>
+  <category name="Colour" colour="#a5745b">
+    <block type="colour_picker">
+      <field name="COLOUR">#ff0000</field>
+    </block>
+    <block type="colour_random"></block>
+    <block type="colour_rgb"></block>
+    <block type="colour_blend"></block>
+  </category>
+  <category name="Functions" colour="#995ba5" custom="PROCEDURE"></category>
+  <category name="Variables" colour="#a55b80" custom="VARIABLE"></category>
+</xml>
+
+  <xml xmlns="https://developers.google.com/blockly/xml" id="startBlocks" style="display: none">
+    
+  </xml>
+
+  <script>
+    
+    var demoWorkspace = Blockly.inject('blocklyDiv',
+        {media: '../../media/',
+         toolbox: document.getElementById('toolbox')});
+    Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'),
+      demoWorkspace);
+    
+      
+    function showCode() {
+      // Generate JavaScript code and display it.
+      Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+      var code = Blockly.JavaScript.workspaceToCode(demoWorkspace);
+      alert(code);
+    }
+
+
+
+
+    function runCode() {
+      // Generate JavaScript code and run it.
+      window.LoopTrap = 1000;
+      Blockly.JavaScript.INFINITE_LOOP_TRAP =
+          'if (--window.LoopTrap === 0) throw "Infinite loop.";\n';
+      var code = Blockly.JavaScript.workspaceToCode(demoWorkspace);
+      Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+      try {
+        eval(code);
+      } catch (e) {
+        alert(e);
+      }
+    }
+    
+
+  </script>
+
+</body>
+</html>
