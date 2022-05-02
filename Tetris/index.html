@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta property="og:image" content="./thumbnail.png" />
+    <meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+    <meta property="og:title" content="T3TRIS" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://mod-3-tetris.herokuapp.com/" />
+    <meta property="og:description" content="Playable Tetris made with vanilla javascript and HTML5 canvas. Created by Joe Avila, Clarion Heard, and Jonny Riecke in Seattle, WA." />
+    <meta name="author" content="Joe Avila, Clarion Heard, Jonny Riecke">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>T3TRIS</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+  </head>
+
+<body>
+    <div class="parent">
+    <!-- Header Division -->
+        <div class="div1">
+            <br></br>
+            <h1 id="head-title" style="padding-bottom: 20px; padding-top: 20px;">Welcome to Tetris!</h1>
+        </div>
+
+    <!-- Left Sidebar -->
+        <div class="div4">
+            <!-- High Score Modal -->
+            <div id="scoreModal" class="modal">
+                 <!-- Modal content -->
+                    <div class="modal-content">
+                    <h3>Congratulations! You are a HIGHSCORER!</h3>
+                    <form id="scoreForm">
+                        <input type="text" name="username", placeholder="Enter initials"></input>
+                        <input type="hidden" name="score">
+                        <button id="submitBtn" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <br></br>
+          <h2 style="margin-bottom: 4px;">Leaderboard:</br></h2>
+          <h3>High Scores to Beat!</h3><br></br></br>
+
+          <table style="margin: auto;">
+            <tr>
+                <th style="padding:10px;"><b>Username</b></th>
+                <th style="padding:10px;">&emsp;<b>High Score</b></th>
+            </tr>
+            <tr>
+                <td id="player0"></td>
+                <td id="player0-score"></td>
+            </tr>
+            <tr>
+                <td id="player1"></td>
+                <td id="player1-score"></td>
+            </tr>
+            <tr>
+                <td id="player2"></td>
+                <td id="player2-score"></td>
+            </tr>
+            
+            </table><br>
+            <br>
+            <div id="controls">
+            <h3>Controls:</h3>
+            <p>
+            <span class="arrow">⮕</span> (Arrow Right): Move Right</br>
+            <span class="arrow">⬅</span> (Arrow Left): Move Left</br>
+            ↓ (Arrow Down): Move Down</br>
+            ↑ (Arrow Up): Rotate Tetrad</br>
+            Spacebar: Pause (Don't cheat!)</br>
+            </p>
+            </div>
+        </div>
+
+    <!-- Game Board Central Div -->
+        <div class="div2"> 
+            <canvas id="canvas" width="273" height="533"></canvas>
+            <div id="pause" class="modal">
+                <div id="pause-screen" class="modal-content">
+                    <br><br><br>
+                    <h3>Game Paused</h3></br>
+                    Press Space to Continue
+                    <br>
+                </div>
+            </div>
+            <div id="gameOver" class="modal">
+                <!-- Modal content -->
+                   <div class="modal-content">
+                   <h3>Womp-ba-domp. Game over.</h3>
+                   <br>
+                       <button id="home">Home</button>
+                   </form>
+               </div>
+           </div>
+        </div>
+
+    <!-- Stats Right Sidebar Div -->
+        <div class="div3"> 
+            <div id="landing">
+                <br></br>
+                <h2>Wanna Play Tetris?</h2>
+                <button id="start">Start Game</button>
+            </div>
+            <br>
+            <div><h2>Your Current Score:</h2></div>
+                <h1 id="player-score">0</h1>
+            <div><h2>Level:</h2></div>
+                <h1 id="player-level">0</h1>
+            <div><h2>Lines:</h2></div>
+                <h1 id="player-lines">0</h1>
+        </div>
+    </div>
+
+  <script type="text/javascript" src="./board-set-up.js"></script>
+  <script type="text/javascript" src="./pieces.js"></script>
+  <script type="text/javascript" src="./playtetris.js"></script>
+
+
+
+</body>
+
+</html>
