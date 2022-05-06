@@ -16,9 +16,15 @@ Project ID:<input type="text" value="685119720" id="projectID">
 <br>
 <h3>Package</h3>
 Title:<input type="text" value="Scratch Game!" id="title"><br>
-Favicon Address:<input type="text" id="icon"><br>
+Favicon Address (PNG):<input type="text" id="icon"><br>
 
-Width and Height:<input type="text" id="width" value="485" size="4">x<input type="text" id="height" value="402" size="4"><br>
+Width and Height:<input type="text" id="width" value="485" size="2">x<input type="text" id="height" value="402" size="2"><br>
+Color:
+<input type="text" value = 'lightgrey' id="icolor"><br>
+Title (Over Game):
+<input type="text" value = 'Scratch Game!' id="subtitle"><br>
+Filename:
+<input type="text" value = 'result' size="1" id="filename">.html<br>
 
 <button onclick="embedPackage()">Package</button>
 
@@ -40,23 +46,23 @@ function embedPackage() {
   var iIcon = document.getElementById("icon").value;
   var width = document.getElementById("width").value;
   var height = document.getElementById("height").value;
+  var icolor = document.getElementById("icolor").value;
+  var subtitle = document.getElementById("subtitle").value;
+  var filename = document.getElementById("filename").value;
   
-  
-  var iframestring='<br><br><center><iframe src="https://scratch.mit.edu/projects/'+projectID+'/embed" title="scratchalt" width="'+width+'" height="'+height+'"></iframe></center>'
+  var iframestring='<br><br><center><h1>'+subtitle+'</h1><iframe src="https://scratch.mit.edu/projects/'+projectID+'/embed" title="scratchalt" width="'+width+'" height="'+height+'"></iframe></center>'
   var titlestring='<title>'+iTitle+'</title>'
-  var iconstring='<link rel="icon" type="image/x-icon" href='+iIcon+'>'
-
+  var iconstring='<link rel="icon" type="image/png" href='+iIcon+'>'
+  var colorstring='<style>body { background-color: '+icolor+'; font-family: verdana; font-size: 15px; }</style>'
 
   
-  var result=new Blob([iframestring+titlestring+iconstring], {type: "text/plain;charset=utf-8"})
+  var result=new Blob([iframestring+titlestring+iconstring+colorstring], {type: "text/plain;charset=utf-8"})
   
-  saveAs(result,'result.html')
+  saveAs(result,filename+'.html')
 }
 </script>
 
 <style>
-
-
 
 h3 {
   font-family: verdana;
