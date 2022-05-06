@@ -1,39 +1,46 @@
 <head>
 <title>scratchalt</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
 
 
 <center>
-<h1>scratchalt</h1>
-<iframe src="https://scratch.mit.edu/projects/685119720/embed" width="485" height="402" id="altiframe"></iframe>
-<br><br>
-Project ID:<input type="text" value="685119720" id="projectID">
+<div class="w3-container w3-grey">
+    <h1>scratchalt</h1>
+  </div>
+  
+  <div class="w3-containter w3-light-grey">
+  <br>
+  <iframe src="https://scratch.mit.edu/projects/685119720/embed" width="485" height="402" id="altiframe"></iframe>
+  <br><br>
+  Project ID:<input type="text" value="685119720" id="projectID">
+  
+  
+  <button onclick="embedGenerate()">Generate</button>
+  
+  <br>
+  <h3>Package</h3>
+  Title:<input type="text" value="Scratch Game!" id="title"><br>
+  Subtitle (Above Game):
+  <input type="text" value = 'Scratch Game!' id="subtitle"><br>
+  Favicon Address (PNG):<input type="text" id="icon"><br>
+  <br>
+  Width and Height:<input type="text" id="width" value="485" size="2">x<input type="text" id="height" value="402" size="2"><br>
+  Fullscreen?:
+  <input type="checkbox" id="ifullscreen" onclick="ifullscreen()"><br>
+  <br>
+  Color:
+  <input type="text" value = 'lightgrey' id="icolor"><br>
+  <br>
+  Filename:
+  <input type="text" value = 'result' size="3" id="filename">.html<br>
+  
+  <button onclick="embedPackage()">Package</button>
 
-
-<button onclick="embedGenerate()">Generate</button>
-
-<br>
-<h3>Package</h3>
-Title:<input type="text" value="Scratch Game!" id="title"><br>
-Subtitle (Above Game):
-<input type="text" value = 'Scratch Game!' id="subtitle"><br>
-Favicon Address (PNG):<input type="text" id="icon"><br>
-<br>
-Width and Height:<input type="text" id="width" value="485" size="2">x<input type="text" id="height" value="402" size="2"><br>
-Fullscreen?:
-<input type="checkbox" id="ifullscreen" onclick="ifullscreen()"><br>
-<br>
-Color:
-<input type="text" value = 'lightgrey' id="icolor"><br>
-<br>
-Filename:
-<input type="text" value = 'result' size="1" id="filename">.html<br>
-
-<button onclick="embedPackage()">Package</button>
-
-</center>
 <script src="/filesaver.js"></script>
+</center>
 <script>
 
 
@@ -93,15 +100,16 @@ function ifullscreen(){
 h3 {
   font-family: verdana;
   text-align: center;
+  
 }
 
 h1 {
   font-family: verdana;
   text-align: center;
+  color: white;
 }
 
 body {
-  background-color: lightgrey;
   font-family: verdana;
   font-size: 15px;
 }
