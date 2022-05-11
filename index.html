@@ -7,114 +7,56 @@
 
 
 <center>
-    
-    
 <div class="w3-container w3-grey">
     <h1>scratchalt</h1>
   </div>
   
   <div class="w3-containter w3-light-grey">
   <br>
-  <iframe src="https://scratch.mit.edu/projects/685119720/embed" width="485" height="402" id="altiframe"></iframe>
+  <iframe src="https://forkphorus.github.io/embed.html?id=685119720&auto-start=true&light-content=false" width="482" height="393" allowfullscreen="true" allowtransparency="true" style="border:none;" name="scratchalt" id="iframe"></iframe>
   <br><br>
-  Project ID:<input type="text" value="685119720" id="projectID">
+  Project ID:<input type="text" value="685119720" id="projectID"><br>
+  <input type="button" value="Generate" onclick="embedGenerate()"><br><br>
+  Start Automatically: <input type="checkbox" id="istart"><br>
+  (Doesn't Work if Show UI is checked)<br>
+  Show UI: <input type="checkbox" id="iui"><br>
+  (Doesn't Work if Start Automatically is checked)<br>
+  <input type="button" value="Package" onclick="packageGenerate()">
   
   
-  <button onclick="embedGenerate()">Generate</button>
   
-  <br>
-  <h3>Package</h3>
-  Title:<input type="text" value="Scratch Game!" id="title"><br>
-  Subtitle (Above Game):
-  <input type="text" value = 'Scratch Game!' id="subtitle"><br>
-  Favicon Address (PNG):<input type="text" id="icon"><br>
-  <br>
-  Width and Height:<input type="text" id="width" value="485" size="2">x<input type="text" id="height" value="402" size="2"><br>
-  Fullscreen?:
-  <input type="checkbox" id="ifullscreen" onclick="ifullscreen()"><br>
-  <br>
-  Color:
-  <input type="text" value = 'lightgrey' id="icolor"><br>
-  <br>
-  Filename:
-  <input type="text" value = 'result' size="3" id="filename">.html<br>
   
-  <button onclick="embedPackage()">Package</button>
-
-<script src="/filesaver.js"></script>
+</div>
 </center>
+<script src="/filesaver.js"></script>
 <script>
-
-
 function embedGenerate() {
-  var iframe = document.getElementById("altiframe");
+  var iframe = document.getElementById("iframe");
   var projectID = document.getElementById("projectID").value;
-  iframe.src="https://scratch.mit.edu/projects/"+projectID+"/embed"
+  iframe.src="https://forkphorus.github.io/embed.html?id="+projectID+"&auto-start=true&light-content=false"
   
     
 }
 
-function embedPackage() {
-  var iframe = document.getElementById("altiframe");
+function packageGenerate() {
+  var iframe = document.getElementById("iframe");
   var projectID = document.getElementById("projectID").value;
-  var iTitle = document.getElementById("title").value;
-  var iIcon = document.getElementById("icon").value;
-  var width = document.getElementById("width").value;
-  var height = document.getElementById("height").value;
-  var icolor = document.getElementById("icolor").value;
-  var subtitle = document.getElementById("subtitle").value;
-  var filename = document.getElementById("filename").value;
-  var ifullscreen = document.getElementById("ifullscreen").value;
-  
-  var iframe=''
-  
-  
-  iframestring='<br><br><center><h1>'+subtitle+'</h1><iframe src="https://scratch.mit.edu/projects/'+projectID+'/embed" title="scratchalt" width="'+width+'" height="'+height+'"></iframe></center>'
-  
-  
-  
-  var titlestring='<title>'+iTitle+'</title>'
-  var iconstring='<link rel="icon" type="image/png" href='+iIcon+'>'
-  var colorstring='<style>body { background-color: '+icolor+'; font-family: verdana; font-size: 15px; }</style>'
-
-  
-  var result=new Blob([iframestring+titlestring+iconstring+colorstring], {type: "text/plain;charset=utf-8"})
-  
-  saveAs(result,filename+'.html')
-}
-
-function ifullscreen(){
-  var ifullscreen = document.getElementById("ifullscreen");
-  if (ifullscreen.checked==true){
-    var width = document.getElementById("width").value = "100%";
-    var height = document.getElementById("height").value = "100%";
-  }else{
-    var width = document.getElementById("width").value = '485';
-    var height = document.getElementById("height").value = '402';
+  var istart = document.getElementById("istart");
+  var startauto="false"
+  if(istart.checked==true){
+    startauto="true"
+  }
+  var showui="false"
+  if(istart.checked==true){
+    showui="true"
   }
   
-}
-
-</script>
-
-<style>
-
-h3 {
-  font-family: verdana;
-  text-align: center;
+  var iframeend="https://forkphorus.github.io/embed.html?id="+projectID+"&auto-start="+startauto+"&light-content=false&ui="+showui+""
   
+    
+  var result=new Blob(['<iframe src="'+iframeend+'" width="482" height="393" allowfullscreen="true" allowtransparency="true" style="border:none;" name="scratchalt" id="iframe"></iframe>'], {type: "text/plain;charset=utf-8"})
+  saveAs(result,'result.html')
 }
-
-h1 {
-  font-family: verdana;
-  text-align: center;
-  color: white;
-}
-
-body {
-  font-family: verdana;
-  font-size: 15px;
-}
-</style>
+</script>
 
 </body>
