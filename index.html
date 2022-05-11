@@ -21,6 +21,9 @@
   (Doesn't Work if Show UI is checked)<br>
   Show UI: <input type="checkbox" id="iui"><br>
   (Doesn't Work if Start Automatically is checked)<br>
+  Width: <input type="text" value="482" id="width"><br>
+  Height: <input type="text" value="402" id="height"><br>
+  Fullscreen: <input type="checkbox" id="ifull"><br>
   <input type="button" value="Package" onclick="packageGenerate()">
   
   
@@ -42,6 +45,10 @@ function packageGenerate() {
   var iframe = document.getElementById("iframe");
   var projectID = document.getElementById("projectID").value;
   var istart = document.getElementById("istart");
+  var ifull = document.getElementById("ifull");
+  var width = document.getElementById("width");
+  var height = document.getElementById("height");
+  
   var startauto="false"
   if(istart.checked==true){
     startauto="true"
@@ -50,11 +57,19 @@ function packageGenerate() {
   if(istart.checked==true){
     showui="true"
   }
+  if(ifull.checked==true){
+    width="100%"
+    height="100%"
+  }else{
+    width = document.getElementById("width");
+    height = document.getElementById("height");
+  }
+  
   
   var iframeend="https://forkphorus.github.io/embed.html?id="+projectID+"&auto-start="+startauto+"&light-content=false&ui="+showui+""
   
     
-  var result=new Blob(['<iframe src="'+iframeend+'" width="482" height="393" allowfullscreen="true" allowtransparency="true" style="border:none;" name="scratchalt" id="iframe"></iframe>'], {type: "text/plain;charset=utf-8"})
+  var result=new Blob(['<center><iframe src="'+iframeend+'" width="'+width+'" height="'+height+'" allowfullscreen="true" allowtransparency="true" style="border:none;" name="scratchalt" id="iframe"></iframe></center>'], {type: "text/plain;charset=utf-8"})
   saveAs(result,'result.html')
 }
 </script>
