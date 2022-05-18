@@ -1,77 +1,21 @@
-<head>
-<title>scratchalt</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-</head>
 <body>
+    <div class="w3-container w3-teal">
+        <h1>Summer Holiday</h1>
+    </div>
+    <div class="w3-row-padding w3-margin-top">
+        <div class="w3-third">
+            <div class="w3-card">
+                <img src="lime.png" style="width:100%" onclick="window.location.replace("http://o003.github.io/lime");">
+                    <div class="w3-container">
+                        <h4>5 Terre</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-
-<center>
-<div class="w3-container w3-grey">
-    <h1>scratchalt</h1>
-  </div>
-  
-  <div class="w3-containter w3-light-grey">
-  <br>
-  <iframe src="https://forkphorus.github.io/embed.html?id=685119720&auto-start=true&light-content=false" width="482" height="393" allowfullscreen="true" allowtransparency="true" style="border:none;" name="scratchalt" id="iframe"></iframe>
-  <br><br>
-  Project ID:<input type="text" value="685119720" id="projectID"><br>
-  <input type="button" value="Generate" onclick="embedGenerate()"><br><br>
-  Start Automatically: <input type="checkbox" id="istart"><br>
-  (Doesn't Work if Show UI is checked)<br>
-  Show UI: <input type="checkbox" id="iui"><br>
-  (Doesn't Work if Start Automatically is checked)<br>
-  Width: <input type="text" value="482" id="width"><br>
-  Height: <input type="text" value="402" id="height"><br>
-  Fullscreen: <input type="checkbox" id="ifull"><br>
-  <input type="button" value="Package" onclick="packageGenerate()">
-  
-  
-  
-  
-</div>
-</center>
-<script src="/filesaver.js"></script>
-<script>
-function embedGenerate() {
-  var iframe = document.getElementById("iframe");
-  var projectID = document.getElementById("projectID").value;
-  iframe.src="https://forkphorus.github.io/embed.html?id="+projectID+"&auto-start=true&light-content=false"
-  
-    
-}
-
-function packageGenerate() {
-  var iframe = document.getElementById("iframe");
-  var projectID = document.getElementById("projectID").value;
-  var istart = document.getElementById("istart");
-  var ifull = document.getElementById("ifull");
-  var width = document.getElementById("width");
-  var height = document.getElementById("height");
-  
-  var startauto="false"
-  if(istart.checked==true){
-    startauto="true"
-  }
-  var showui="false"
-  if(istart.checked==true){
-    showui="true"
-  }
-  if(ifull.checked==true){
-    width="100%"
-    height="100%"
-  }else{
-    width = document.getElementById("width");
-    height = document.getElementById("height");
-  }
-  
-  
-  var iframeend="https://forkphorus.github.io/embed.html?id="+projectID+"&auto-start="+startauto+"&light-content=false&ui="+showui+""
-  
-    
-  var result=new Blob(['<center><iframe src="'+iframeend+'" width="'+width+'" height="'+height+'" allowfullscreen="true" allowtransparency="true" style="border:none;" name="scratchalt" id="iframe"></iframe></center>'], {type: "text/plain;charset=utf-8"})
-  saveAs(result,'result.html')
-}
-</script>
-
+    <script>
+        
+    </script>
 </body>
